@@ -27,7 +27,9 @@ namespace DOTNETCoreWebMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                todoModel.Title = todoModel.Title.Trim();
                 todoModel.CreatedAt = DateTime.Now;
+                todoModel.ModifiedAt = DateTime.Now;
                 todoContext.Add(todoModel);
                 await todoContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -69,6 +71,8 @@ namespace DOTNETCoreWebMVC.Controllers
             {
                 try
                 {
+                    todoModel.Title = todoModel.Title.Trim();
+                    todoModel.ModifiedAt = DateTime.Now;
                     todoContext.Update(todoModel);
                     await todoContext.SaveChangesAsync();
                 }
@@ -88,7 +92,6 @@ namespace DOTNETCoreWebMVC.Controllers
             return View(todoModel);
         }
 
-        // GET: TodoModels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -96,8 +99,7 @@ namespace DOTNETCoreWebMVC.Controllers
                 return NotFound();
             }
 
-            var todoModel = await todoContext.TodoModel
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var todoModel = await todoContext.TodoModel.FirstOrDefaultAsync(m => m.Id == id);
             if (todoModel == null)
             {
                 return NotFound();
@@ -106,7 +108,6 @@ namespace DOTNETCoreWebMVC.Controllers
             return View(todoModel);
         }
 
-        // POST: TodoModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

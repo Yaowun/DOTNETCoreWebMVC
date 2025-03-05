@@ -12,7 +12,8 @@ public class TodoModel
     public string Title { get; set; }
     public TodoStatus Status { get; set; }
     public TodoType Type { get; set; }
-    [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd hh:mm:ss}", ApplyFormatInEditMode = true)]
     public DateTime CreatedAt { get; set; }
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd hh:mm:ss}", ApplyFormatInEditMode = true)]
+    public DateTime ModifiedAt { get; set; }
 }
