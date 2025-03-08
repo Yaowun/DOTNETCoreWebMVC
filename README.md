@@ -10,4 +10,5 @@ This web demonstrates a basic Todo List CRUD application built using the ASP.NET
 
 ## Demo
 ![Todo List Demo Figure](./wwwroot/fig/Todo_List_demo.png)
-![Todo List Demo Video](./wwwroot/fig/Todo_List_demo.mp4)
+
+https://github.com/user-attachments/assets/30301a2b-eb04-4c26-9716-42d97930719c
