@@ -25,8 +25,7 @@ else
         throw new InvalidOperationException("ConnectionStrings:TodoContext is not set in appsettings.json.");
     }
 
-    builder.Services.AddDbContext<TodoContext>(options => options.UseNpgsql(connectionString));
-    //builder.Services.AddDbContext<TodoContext>(options => options.UseSqlServer(connectionString));
+    builder.Services.AddDbContext<TodoContext>(options => options.UseSqlServer(connectionString));
 }
 
 // Add services to the container.
