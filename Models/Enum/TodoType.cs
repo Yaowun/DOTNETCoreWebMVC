@@ -1,4 +1,4 @@
-﻿namespace DOTNETCoreWebMVC.Models.Enum;
+﻿namespace TodoList.Models.Enum;
 
 public enum TodoType
 {

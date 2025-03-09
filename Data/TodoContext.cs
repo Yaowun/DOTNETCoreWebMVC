@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using DOTNETCoreWebMVC.Models;
+using TodoList.Models;
 
-namespace DOTNETCoreWebMVC.Data
+namespace TodoList.Data
 {
     public class TodoContext(DbContextOptions<TodoContext> options) : DbContext(options)
     {

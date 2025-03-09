@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using DOTNETCoreWebMVC.Data;
+using TodoList.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TodoContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TodoContext")));

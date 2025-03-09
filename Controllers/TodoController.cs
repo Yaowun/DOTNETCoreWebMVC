@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DOTNETCoreWebMVC.Data;
-using DOTNETCoreWebMVC.Models;
-using DOTNETCoreWebMVC.Models.Enum;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using TodoList.Data;
+using TodoList.Models;
+using TodoList.Models.Enum;
 
-namespace DOTNETCoreWebMVC.Controllers
+namespace TodoList.Controllers
 {
     public class TodoController(TodoContext todoContext) : Controller
     {

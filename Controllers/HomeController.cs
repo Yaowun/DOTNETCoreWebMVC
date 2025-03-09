@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using DOTNETCoreWebMVC.Models;
+using TodoList.Models;
 
-namespace DOTNETCoreWebMVC.Controllers;
+namespace TodoList.Controllers;
 
 public class HomeController : Controller
 {

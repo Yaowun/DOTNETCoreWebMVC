@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using DOTNETCoreWebMVC.Models.Enum;
+using TodoList.Models.Enum;
 
-namespace DOTNETCoreWebMVC.Models;
+namespace TodoList.Models;
 
 public class TodoModel
 {

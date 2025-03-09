@@ -1,4 +1,4 @@
-namespace DOTNETCoreWebMVC.Models
+namespace TodoList.Models
 {
     public class ErrorViewModel
     {
