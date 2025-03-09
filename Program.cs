@@ -7,13 +7,6 @@ var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
 if (environment == "Production")
 {
-    //var connectionString = Environment.GetEnvironmentVariable("DB_URL");
-
-    //if (string.IsNullOrEmpty(connectionString))
-    //{
-    //    throw new InvalidOperationException("DB_URL environment variable is not set in Render.");
-    //}
-    
     var dbUser = Environment.GetEnvironmentVariable("DB_USER");
     var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
     var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
