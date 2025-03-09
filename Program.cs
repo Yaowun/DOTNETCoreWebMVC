@@ -2,8 +2,31 @@
 using TodoList.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<TodoContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TodoContext")));
+
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+if (environment == "Production")
+{
+    var connectionString = Environment.GetEnvironmentVariable("DB_URL");
+
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        throw new InvalidOperationException("DB_URL environment variable is not set in Render.");
+    }
+
+    builder.Services.AddDbContext<TodoContext>(options => options.UseNpgsql(connectionString));
+}
+else
+{
+    var connectionString = builder.Configuration.GetConnectionString("TodoContext");
+
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        throw new InvalidOperationException("ConnectionStrings:TodoContext is not set in appsettings.json.");
+    }
+
+    builder.Services.AddDbContext<TodoContext>(options => options.UseSqlServer(connectionString));
+}
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

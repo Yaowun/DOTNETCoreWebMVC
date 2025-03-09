@@ -1,11 +1,8 @@
 ﻿services:
   - type: web
-    name: TodoList
+    runtime: docker
     dockerfilePath: Dockerfile
+    name: TodoList
     plan: free
     branch: main
     region: singapore
-    envVars:
-      - key: ASPNETCORE_ENVIRONMENT
-        value: "Production"
-    runtime: docker
