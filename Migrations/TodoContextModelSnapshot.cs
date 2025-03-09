@@ -22,7 +22,7 @@ namespace DOTNETCoreWebMVC.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DOTNETCoreWebMVC.Models.TodoModel", b =>
+            modelBuilder.Entity("TodoList.Models.TodoModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

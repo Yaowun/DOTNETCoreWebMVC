@@ -7,11 +7,19 @@ obj/
 *.suo
 
 # Log files
+logs/
 *.log
 
-# Visual Studio Code
+# Visual Studio & VS Code
 .vscode/
+.vs/
+
+# JetBrains Rider / WebStorm / PyCharm
+.idea/
 
 # Temporary files
 *.tmp
 *.temp
+
+# NuGet Packages
+packages/
