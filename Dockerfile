@@ -4,7 +4,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
-COPY ["TodoList/TodoList.csproj", "TodoList/"]
+COPY ["TodoList.csproj", "TodoList/"]
 RUN dotnet restore "TodoList/TodoList.csproj"
 COPY . .
 WORKDIR "/src/TodoList"
