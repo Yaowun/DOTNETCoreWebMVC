@@ -7,12 +7,19 @@ var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
 if (environment == "Production")
 {
-    var connectionString = Environment.GetEnvironmentVariable("DB_URL");
+    //var connectionString = Environment.GetEnvironmentVariable("DB_URL");
 
-    if (string.IsNullOrEmpty(connectionString))
-    {
-        throw new InvalidOperationException("DB_URL environment variable is not set in Render.");
-    }
+    //if (string.IsNullOrEmpty(connectionString))
+    //{
+    //    throw new InvalidOperationException("DB_URL environment variable is not set in Render.");
+    //}
+    
+    var dbUser = Environment.GetEnvironmentVariable("DB_USER");
+    var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
+    var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
+    var dbPort = Environment.GetEnvironmentVariable("DB_PORT");
+    var dbName = Environment.GetEnvironmentVariable("DB_NAME");
+    var connectionString = $"User ID={dbUser};Password={dbPassword};Host={dbHost};Port={dbPort};Database={dbName};";
 
     builder.Services.AddDbContext<TodoContext>(options => options.UseNpgsql(connectionString));
 }
@@ -25,7 +32,8 @@ else
         throw new InvalidOperationException("ConnectionStrings:TodoContext is not set in appsettings.json.");
     }
 
-    builder.Services.AddDbContext<TodoContext>(options => options.UseSqlServer(connectionString));
+    builder.Services.AddDbContext<TodoContext>(options => options.UseNpgsql(connectionString));
+    //builder.Services.AddDbContext<TodoContext>(options => options.UseSqlServer(connectionString));
 }
 
 // Add services to the container.
