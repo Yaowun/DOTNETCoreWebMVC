@@ -28,8 +28,8 @@ namespace TodoList.Controllers
             if (ModelState.IsValid)
             {
                 todoModel.Title = todoModel.Title.Trim();
-                todoModel.CreatedAt = DateTime.Now;
-                todoModel.ModifiedAt = DateTime.Now;
+                todoModel.CreatedAt = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+                todoModel.ModifiedAt = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
                 todoContext.Add(todoModel);
                 await todoContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -72,7 +72,11 @@ namespace TodoList.Controllers
                 try
                 {
                     todoModel.Title = todoModel.Title.Trim();
-                    todoModel.ModifiedAt = DateTime.Now;
+                    if (todoModel.CreatedAt.Kind == DateTimeKind.Unspecified)
+                    {
+                        todoModel.CreatedAt = DateTime.SpecifyKind(todoModel.CreatedAt, DateTimeKind.Utc);
+                    }
+                    todoModel.ModifiedAt = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
                     todoContext.Update(todoModel);
                     await todoContext.SaveChangesAsync();
                 }
